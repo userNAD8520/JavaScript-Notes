@@ -1,2 +1,2 @@
 # JavaScript-Notes
-## [Notes](./Notes/JavaScript-Notes.md)
+## [Notes](./Notes/JavaScript_Notes.md)
