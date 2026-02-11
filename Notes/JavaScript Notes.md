@@ -1,1643 +1,1662 @@
-# JavaScript Notes
-
----
-
+# JavaScript Comprehensive Notes
 ## Table of Contents
 
-- [JavaScript Basics](#javascript-basics)
-  - [Data Types](#data-types)
-  - [Variables](#variables)
-  - [Arithmetic Operators](#arithmetic-operators)
-  - [Assignment Operators](#assignment-operators)
-  - [Comparison Operators](#comparison-operators)
-  - [Logical Operators](#logical-operators)
-  - [Comments](#comments)
-  - [console.log](#the-consolelog-function)
-- [JavaScript Control Flow](#javascript-control-flow)
-  - [if Statements](#if-statements)
-  - [else if Statements](#else-if-statements)
-  - [else Statements](#else-statements)
-  - [Ternary Operator](#ternary-operator)
-  - [Switch Statement](#switch-statement)
-  - [While Loop](#while-loop)
-  - [Break & Continue Statements](#break--continue-statements)
-  - [Do...While Loop](#dowhile-loop)
-  - [For Loop](#for-loop)
-  - [For Loops vs Array Methods](#for-loops-vs-array-methods)
-- [JavaScript Functions](#javascript-functions)
-  - [Function Declaration](#function-declaration)
-  - [Function Parameters](#function-parameters)
-  - [Function Return](#function-return)
-  - [Function Expressions](#function-expressions)
-  - [Anonymous Functions](#anonymous-functions)
-  - [Arrow Functions](#arrow-functions)
-  - [Arrow Functions vs Regular Functions](#arrow-functions-vs-regular-functions)
-- [JavaScript Arrays](#javascript-arrays)
-  - [Array Declaration](#array-declaration)
-  - [Array Indexes](#array-indexes)
-  - [Array Length](#array-length)
-  - [Array Destructuring](#array-destructuring)
-  - [The Spread Operator](#the-spread-operator)
-- [JavaScript Array Methods](#javascript-array-methods)
-  - [Array Push](#array-push)
-  - [Array Pop](#array-pop)
-  - [Array Shift](#array-shift)
-  - [Array Unshift](#array-unshift)
-  - [Array Concat](#array-concat)
-  - [Array Slice](#array-slice)
-  - [Array Splice](#array-splice)
-  - [Array Join](#array-join)
-  - [Array Reverse](#array-reverse)
-  - [Array Sort](#array-sort)
-  - [Array indexOf](#array-indexof)
-  - [Array findIndex](#array-findindex)
-  - [Array find](#array-find)
-  - [Array filter](#array-filter)
-  - [Array map](#array-map)
-  - [Array reduce](#array-reduce)
-  - [Array every](#array-every)
-  - [Array some](#array-some)
-  - [Array forEach](#array-foreach)
-  - [Array isArray](#array-isarray)
-  - [Array includes](#array-includes)
-  - [Array fill](#array-fill)
-  - [Array flat](#array-flat)
-  - [Array flatMap](#array-flatmap)
-  - [Array from](#array-from)
-  - [Array keys](#array-keys)
-  - [Array values](#array-values)
-  - [Array entries](#array-entries)
-- [JavaScript Objects](#javascript-objects)
-  - [Object Declaration](#object-declaration)
-  - [Object Properties](#object-properties)
-  - [Adding Object Properties](#adding-object-properties)
-  - [Updating Object Properties](#updating-object-properties)
-  - [Deleting Object Properties](#deleting-object-properties)
-  - [Checking if a Property Exists](#checking-if-a-property-exists)
-  - [Iterating Over Object Properties](#iterating-over-object-properties)
-  - [Object Methods](#object-methods)
-- [JavaScript String Manipulation](#javascript-string-manipulation)
-  - [concat](#concat)
-  - [charAt](#charat)
-  - [includes](#includes)
-  - [indexOf](#indexof)
-  - [slice](#slice)
-  - [split](#split)
-  - [replace](#replace)
-  - [toLowerCase](#tolowercase)
-  - [toUpperCase](#touppercase)
-  - [trim](#trim)
-  - [trimLeft & trimRight](#trimleft--trimright)
-- [JavaScript String Formatting](#javascript-string-formatting)
-  - [Template Literals](#template-literals)
-  - [String Concatenation](#string-concatenation)
+1. [JavaScript Basics](#1-javascript-basics)
+    - [1.1 Data Types](#11-data-types)
+    - [1.2 Variables](#12-variables)
+    - [1.3 Arithmetic Operators](#13-arithmetic-operators)
+    - [1.4 Assignment Operators](#14-assignment-operators)
+    - [1.5 Comparison Operators](#15-comparison-operators)
+    - [1.6 Logical Operators](#16-logical-operators)
+    - [1.7 Comments](#17-comments)
+    - [1.8 console.log and Other Console Methods](#18-consolelog-and-other-console-methods)
+2. [JavaScript Control Flow](#2-javascript-control-flow)
+    - [2.1 if / else if / else Statements](#21-if--else-if--else-statements)
+    - [2.2 Ternary Operator](#22-ternary-operator)
+    - [2.3 Switch Statement](#23-switch-statement)
+    - [2.4 While Loop](#24-while-loop)
+    - [2.5 Do...While Loop](#25-dowhile-loop)
+    - [2.6 For Loop](#26-for-loop)
+    - [2.7 Break and Continue](#27-break-and-continue)
+    - [2.8 For Loops vs Array Methods](#28-for-loops-vs-array-methods)
+3. [JavaScript Functions](#3-javascript-functions)
+    - [3.1 Function Declaration (Hoisted)](#31-function-declaration-hoisted)
+    - [3.2 Function Parameters](#32-function-parameters)
+    - [3.3 Function Return](#33-function-return)
+    - [3.4 Function Expressions (Not Hoisted)](#34-function-expressions-not-hoisted)
+    - [3.5 Arrow Functions (ES6)](#35-arrow-functions-es6)
+    - [3.6 IIFE (Immediately Invoked Function Expression)](#36-iife-immediately-invoked-function-expression)
+    - [3.7 Closures](#37-closures)
+    - [3.8 Higher-Order Functions](#38-higher-order-functions)
+4. [JavaScript Arrays](#4-javascript-arrays)
+    - [4.1 Array Declaration](#41-array-declaration)
+    - [4.2 Array Indexes and Length](#42-array-indexes-and-length)
+    - [4.3 Array Destructuring](#43-array-destructuring)
+    - [4.4 The Spread Operator (...)](#44-the-spread-operator-)
+5. [JavaScript Array Methods](#5-javascript-array-methods)
+    - [5.1 Mutating Methods](#51-mutating-methods-modify-original-array)
+    - [5.2 Non-Mutating Methods](#52-non-mutating-methods-return-new-arrayvalue)
+6. [JavaScript Objects](#6-javascript-objects)
+    - [6.1 Object Declaration](#61-object-declaration)
+    - [6.2 Accessing, Adding, Updating, and Deleting Properties](#62-accessing-adding-updating-and-deleting-properties)
+    - [6.3 Checking if a Property Exists](#63-checking-if-a-property-exists)
+    - [6.4 Iterating Over Objects](#64-iterating-over-objects)
+    - [6.5 Useful Object Methods](#65-useful-object-methods)
+7. [JavaScript String Manipulation](#7-javascript-string-manipulation)
+    - [7.1 String Methods](#71-string-methods)
+    - [7.2 Template Literals (ES6)](#72-template-literals-es6)
+    - [7.3 String Concatenation](#73-string-concatenation)
+8. [Error Handling](#8-error-handling)
+9. [Promises and Async/Await](#9-promises-and-asyncawait)
+    - [9.1 Promises](#91-promises)
+    - [9.2 Async/Await](#92-asyncawait)
+10. [Useful Tips and Patterns](#10-useful-tips-and-patterns)
+---
+
+## 1. JavaScript Basics
+
+### 1.1 Data Types
+
+JavaScript has **8 data types** (7 primitive + 1 non-primitive):
+
+| Data Type   | Description                                  | Example                                |
+| ----------- | -------------------------------------------- | -------------------------------------- |
+| `undefined` | A variable declared but not assigned a value | `let x; // x is undefined`             |
+| `null`      | Intentional absence of any value             | `let x = null;`                        |
+| `string`    | Textual data enclosed in quotes              | `'Hello'`, `"World"`, `` `Template` `` |
+| `number`    | Integer or floating-point numbers            | `42`, `-3.14`, `Infinity`, `NaN`       |
+| `boolean`   | Logical values                               | `true`, `false`                        |
+| `bigint`    | Integers of arbitrary length (ES2020)        | `9007199254740991n`                    |
+| `symbol`    | Unique and immutable identifier (ES6)        | `Symbol('id')`                         |
+| `object`    | Collection of key-value pairs                | `{ name: 'John' }`, `[1,2,3]`          |
+
+**Additional Notes:**
+
+- `typeof null` returns `"object"` — this is a known JavaScript bug that persists for backward compatibility.
+- `NaN` (Not a Number) is of type `number`. Use `Number.isNaN()` to check for it.
+- Arrays, functions, dates, and regex are all technically objects.
+
+```javascript
+// Checking types
+typeof "hello"      // "string"
+typeof 42           // "number"
+typeof true         // "boolean"
+typeof undefined    // "undefined"
+typeof null         // "object" (historical bug)
+typeof Symbol('x')  // "symbol"
+typeof 10n          // "bigint"
+typeof {}           // "object"
+typeof []           // "object"
+typeof function(){} // "function"
+```
+
+#### Type Coercion
+
+JavaScript automatically converts types in certain situations:
+
+```javascript
+// Implicit coercion
+'5' + 3        // "53" (number coerced to string)
+'5' - 3        // 2 (string coerced to number)
+true + 1       // 2 (true coerced to 1)
+false + 1      // 1 (false coerced to 0)
+null + 5       // 5 (null coerced to 0)
+undefined + 5  // NaN
+
+// Explicit coercion
+Number('42')    // 42
+String(42)      // "42"
+Boolean(0)      // false
+Boolean('')     // false
+Boolean('hello') // true
+parseInt('42px') // 42
+parseFloat('3.14abc') // 3.14
+```
+
+#### Truthy and Falsy Values
+
+In JavaScript, values are either "truthy" or "falsy" when evaluated in a boolean context:
+
+```javascript
+// Falsy values (all of these evaluate to false):
+false, 0, -0, 0n, "", null, undefined, NaN
+
+// Everything else is truthy, including:
+"0", "false", [], {}, function(){}
+```
 
 ---
 
-## JavaScript Basics
-
-### Data Types
-
-JavaScript provides seven different data types:
-
-| Data Type | Examples |
-|---|---|
-| `undefined` | A variable that has not been assigned a value is of type `undefined`. |
-| `null` | No value. |
-| `string` | `'A'`, `'aa'`, `'Hello!'` |
-| `number` | `12`, `-1`, `0.4` |
-| `object` | Collection of properties |
-| `symbol` | Represents a unique identifier |
-
----
-
-### Variables
+### 1.2 Variables
 
 There are three ways to declare variables:
 
-1. **`var`**: Oldest way to declare variables. Not used much in modern JavaScript. Variables declared with `var` are **function-scoped**, meaning they are only available within the function they're declared in.
+#### `var` (Function-scoped, hoisted)
 
 ```javascript
 var name = "John";
+var name = "Jane"; // Re-declaration allowed
+name = "Bob";      // Re-assignment allowed
+
+// Hoisting example
+console.log(x); // undefined (not an error!)
+var x = 5;
+// This is because var declarations are hoisted to the top
 ```
 
-2. **`let`**: Newer way of declaring variables, introduced in ES6. Variables declared with `let` are **block-scoped**, meaning they are only available within the block they're declared in.
+#### `let` (Block-scoped, not hoisted in usable form)
 
 ```javascript
 let age = 25;
-```
+// let age = 30; // ERROR: Cannot re-declare
+age = 30;        // Re-assignment allowed
 
-3. **`const`**: Also introduced in ES6, `const` is used to declare **constants**, i.e., variables that cannot be reassigned. Like `let`, `const` is also block-scoped.
-
-```javascript
-const pi = 3.14159;
-```
-
-> **Reminders:**
-> - Variables declared with `var` are **hoisted** to the top of their scope. This means they can be used before they're declared. This is **not** the case with `let` and `const`.
-> - `let` and `const` create variables that are **block-scoped**, meaning they exist only within the block they're declared in. This is different from `var`, which creates **function-scoped** variables.
-> - Variables declared with `const` cannot be reassigned. However, if the variable is an object or an array, its properties or elements **can** still be modified.
-
----
-
-### Arithmetic Operators
-
-Arithmetic operators are used to perform mathematical operations:
-
-| Operator | Description | Example | Result |
-|---|---|---|---|
-| `+` | Addition | `5 + 2` | `7` |
-| `-` | Subtraction | `5 - 2` | `3` |
-| `*` | Multiplication | `5 * 2` | `10` |
-| `/` | Division | `5 / 2` | `2.5` |
-| `%` | Modulus (Remainder) | `5 % 2` | `1` |
-| `++` | Increment | `let x = 5; x++` | `6` |
-| `--` | Decrement | `let x = 5; x--` | `4` |
-| `**` | Exponentiation | `5 ** 2` | `25` |
-
----
-
-### Assignment Operators
-
-1. **Assignment (`=`)**: Assigns the value on the right to the variable on the left.
-
-```javascript
-let x = 10; // x is now 10
-```
-
-2. **Addition assignment (`+=`)**: Adds the value on the right to the variable on the left.
-
-```javascript
-let x = 5;
-x += 10; // x is now 15
-```
-
-3. **Subtraction assignment (`-=`)**: Subtracts the value on the right from the variable on the left.
-
-```javascript
-let x = 10;
-x -= 5; // x is now 5
-```
-
-4. **Multiplication assignment (`*=`)**: Multiplies the variable on the left by the value on the right.
-
-```javascript
-let x = 5;
-x *= 10; // x is now 50
-```
-
-5. **Division assignment (`/=`)**: Divides the variable on the left by the value on the right.
-
-```javascript
-let x = 10;
-x /= 5; // x is now 2
-```
-
-6. **Modulus assignment (`%=`)**: Divides the variable on the left by the value on the right and assigns the remainder.
-
-```javascript
-let x = 10;
-x %= 3; // x is now 1
-```
-
-7. **Exponentiation assignment (`**=`)**: Raises the variable on the left to the power of the value on the right.
-
-```javascript
-let x = 5;
-x **= 2; // x is now 25
-```
-
-These operators provide a shorthand way to update the value of a variable in relation to its current value.
-
----
-
-### Comparison Operators
-
-| Operator | Description | Example | Result |
-|---|---|---|---|
-| `==` | Equal to | `5 == 5` | `true` |
-| `!=` | Not equal to | `5 != 4` | `true` |
-| `===` | Strictly equal to | `5 === 5` / `'5' === 5` | `true` / `false` (types differ) |
-| `!==` | Strictly not equal to | `5 !== '5'` | `true` |
-| `>` | Greater than | `10 > 5` | `true` |
-| `<` | Less than | `5 < 10` | `true` |
-| `>=` | Greater or equal to | `10 >= 10` | `true` |
-| `<=` | Less than or equal to | `5 <= 5` | `true` |
-
----
-
-### Logical Operators
-
-1. **Logical AND (`&&`)**: Returns `true` if **both** operands are true.
-
-```javascript
-true && true;   // true
-true && false;  // false
-```
-
-2. **Logical OR (`||`)**: Returns `true` if **at least one** of the operands is true.
-
-```javascript
-true || false;   // true
-false || false;  // false
-```
-
-3. **Logical NOT (`!`)**: Returns `true` if the operand is `false`, and vice versa. It reverses the boolean value.
-
-```javascript
-!true;   // false
-!false;  // true
-```
-
-These operators are often used in conditional statements to combine or invert boolean conditions.
-
----
-
-### Comments
-
-**Single-line comments** are created using two forward slashes `//`. Everything to the right of `//` on the same line is a comment.
-
-```javascript
-// This is a single-line comment
-```
-
-**Multi-line comments** are created using `/*` to start and `*/` to end. Everything between them is a comment.
-
-```javascript
-/*
-This is a multi-line comment
-It can span multiple lines
-*/
-```
-
----
-
-### The console.log Function
-
-The `console.log()` function is used to print output to the console. Useful for debugging.
-
-```javascript
-console.log("Hello, World!"); // prints "Hello, World!" to the console
-```
-
-You can print the value of variables:
-
-```javascript
-let a = 1;
-console.log(a); // prints the value of a (1) to the console
-```
-
-You can also print multiple values at once by separating them with commas:
-
-```javascript
-let a = 1;
-let b = 2;
-console.log(a, b); // prints "1 2" to the console
-```
-
----
-
-## JavaScript Control Flow
-
-### if Statements
-
-Used to specify a block of code to be executed if a specified condition is `true`.
-
-```javascript
-let a = 10;
-if (a > 5) {
-  console.log('a is greater than 5');
+// Block scoping
+if (true) {
+    let blockVar = "I'm inside a block";
+    console.log(blockVar); // "I'm inside a block"
 }
+// console.log(blockVar); // ERROR: blockVar is not defined
+
+// Temporal Dead Zone (TDZ)
+// console.log(y); // ERROR: Cannot access 'y' before initialization
+let y = 10;
 ```
 
-Because `a` is indeed greater than 5, the message `'a is greater than 5'` will be printed to the console.
+#### `const` (Block-scoped, cannot be reassigned)
+
+```javascript
+const PI = 3.14159;
+// PI = 3.14; // ERROR: Assignment to constant variable
+
+// IMPORTANT: const with objects and arrays
+const person = { name: "John" };
+person.name = "Jane";  // This WORKS! Properties can be modified
+// person = {};         // ERROR: Cannot reassign the variable
+
+const arr = [1, 2, 3];
+arr.push(4);    // This WORKS! [1, 2, 3, 4]
+// arr = [5, 6]; // ERROR: Cannot reassign
+```
+
+**Best Practice:** Use `const` by default. Use `let` when you need to reassign. Avoid `var`.
 
 ---
 
-### else if Statements
+### 1.3 Arithmetic Operators
 
-Used to specify a new condition to test if the first condition is `false`.
+| Operator | Description         | Example          | Result |
+| -------- | ------------------- | ---------------- | ------ |
+| `+`      | Addition            | `5 + 2`          | `7`    |
+| `-`      | Subtraction         | `5 - 2`          | `3`    |
+| `*`      | Multiplication      | `5 * 2`          | `10`   |
+| `/`      | Division            | `5 / 2`          | `2.5`  |
+| `%`      | Modulus (Remainder) | `5 % 2`          | `1`    |
+| `++`     | Increment           | `let x = 5; x++` | `6`    |
+| `--`     | Decrement           | `let x = 5; x--` | `4`    |
+| `**`     | Exponentiation      | `5 ** 2`         | `25`   |
+
+**Pre-increment vs Post-increment:**
 
 ```javascript
 let a = 5;
-if (a > 5) {
-  console.log('a is greater than 5');
-} else if (a == 5) {
-  console.log('a is equal to 5');
-}
+let b = a++;  // b = 5, a = 6 (returns value THEN increments)
+let c = ++a;  // c = 7, a = 7 (increments THEN returns value)
+
+// Practical example
+let i = 0;
+console.log(i++); // 0 (prints first, then increments)
+console.log(i);   // 1
+console.log(++i); // 2 (increments first, then prints)
 ```
 
-Because `a` is not greater than 5, the first block is skipped. Since `a` is equal to 5, `'a is equal to 5'` is printed.
+**Floating Point Precision:**
+
+```javascript
+0.1 + 0.2           // 0.30000000000000004 (not 0.3!)
+(0.1 + 0.2).toFixed(1) // "0.3" (use toFixed for display)
+Math.abs(0.1 + 0.2 - 0.3) < Number.EPSILON // true (use for comparison)
+```
 
 ---
 
-### else Statements
+### 1.4 Assignment Operators
 
-Used to specify a block of code to be executed if **all** previous conditions are `false`.
+| Operator | Example     | Equivalent              |
+| -------- | ----------- | ----------------------- |
+| `=`      | `x = 10`    | Assign 10 to x          |
+| `+=`     | `x += 5`    | `x = x + 5`             |
+| `-=`     | `x -= 5`    | `x = x - 5`             |
+| `*=`     | `x *= 5`    | `x = x * 5`             |
+| `/=`     | `x /= 5`    | `x = x / 5`             |
+| `%=`     | `x %= 5`    | `x = x % 5`             |
+| `**=`    | `x **= 2`   | `x = x ** 2`            |
+| `&&=`    | `x &&= 5`   | `x = x && 5` (ES2021)   |
+| `\|\|=`  | `x \|\|= 5` | `x = x \|\| 5` (ES2021) |
+| `??=`    | `x ??= 5`   | `x = x ?? 5` (ES2021)   |
 
 ```javascript
-let a = 4;
-if (a > 5) {
-  console.log('a is greater than 5');
-} else if (a == 5) {
-  console.log('a is equal to 5');
+// Logical assignment operators (ES2021)
+let a = null;
+a ??= 10;     // a = 10 (assigns if null or undefined)
+
+let b = 0;
+b ||= 5;      // b = 5 (assigns if falsy)
+
+let c = 1;
+c &&= 2;      // c = 2 (assigns if truthy)
+```
+
+---
+
+### 1.5 Comparison Operators
+
+| Operator | Description           | Example     | Result  |
+| -------- | --------------------- | ----------- | ------- |
+| `==`     | Equal to (loose)      | `5 == '5'`  | `true`  |
+| `!=`     | Not equal to (loose)  | `5 != '5'`  | `false` |
+| `===`    | Strictly equal to     | `5 === '5'` | `false` |
+| `!==`    | Strictly not equal to | `5 !== '5'` | `true`  |
+| `>`      | Greater than          | `10 > 5`    | `true`  |
+| `<`      | Less than             | `5 < 10`    | `true`  |
+| `>=`     | Greater or equal to   | `10 >= 10`  | `true`  |
+| `<=`     | Less than or equal to | `5 <= 5`    | `true`  |
+
+**`==` vs `===` — Why it matters:**
+
+```javascript
+// == performs type coercion
+0 == false       // true
+'' == false      // true
+null == undefined // true
+'0' == false     // true
+
+// === does NOT perform type coercion (RECOMMENDED)
+0 === false       // false
+'' === false      // false
+null === undefined // false
+'0' === false     // false
+
+// Always use === unless you have a specific reason to use ==
+```
+
+---
+
+### 1.6 Logical Operators
+
+| Operator | Name               | Description                                         |
+| -------- | ------------------ | --------------------------------------------------- |
+| `&&`     | AND                | Returns `true` if both operands are true            |
+| `\|\|`   | OR                 | Returns `true` if at least one operand is true      |
+| `!`      | NOT                | Inverts the boolean value                           |
+| `??`     | Nullish Coalescing | Returns right operand if left is `null`/`undefined` |
+
+```javascript
+// AND (&&) - returns first falsy value or last value
+true && true      // true
+true && false     // false
+'hello' && 'world' // 'world'
+0 && 'hello'      // 0
+
+// OR (||) - returns first truthy value or last value
+true || false     // true
+false || false    // false
+'' || 'default'   // 'default'
+0 || 42           // 42
+
+// NOT (!)
+!true             // false
+!0                // true
+!!''              // false (double NOT for boolean conversion)
+!!'hello'         // true
+
+// Nullish Coalescing (??) - only checks null/undefined
+null ?? 'default'      // 'default'
+undefined ?? 'default' // 'default'
+0 ?? 'default'         // 0 (unlike ||, doesn't treat 0 as falsy)
+'' ?? 'default'        // '' (unlike ||, doesn't treat '' as falsy)
+
+// Optional Chaining (?.) - often used with ??
+let user = { address: { street: "Main St" } };
+user?.address?.street   // "Main St"
+user?.phone?.number     // undefined (no error!)
+user?.phone?.number ?? "N/A" // "N/A"
+```
+
+**Short-circuit evaluation:**
+
+```javascript
+// && stops at first falsy, || stops at first truthy
+let result = false && expensiveFunction(); // expensiveFunction never runs
+let name = userInput || "Anonymous";       // default value pattern
+```
+
+---
+
+### 1.7 Comments
+
+```javascript
+// Single-line comment
+
+/*
+  Multi-line comment
+  Can span multiple lines
+*/
+
+/**
+ * JSDoc comment - used for documentation
+ * @param {string} name - The name of the person
+ * @returns {string} A greeting message
+ */
+function greet(name) {
+    return `Hello, ${name}!`;
+}
+```
+
+---
+
+### 1.8 console.log and Other Console Methods
+
+```javascript
+// Basic logging
+console.log("Hello, World!");
+console.log("Name:", name, "Age:", age);
+
+// Other useful console methods
+console.warn("This is a warning");
+console.error("This is an error");
+console.info("This is informational");
+console.table([{name: "John", age: 30}, {name: "Jane", age: 25}]);
+console.time("timer");
+// ... some code ...
+console.timeEnd("timer"); // Outputs elapsed time
+console.group("Group Name");
+console.log("Inside group");
+console.groupEnd();
+console.clear(); // Clears the console
+console.assert(1 === 2, "1 is not equal to 2"); // Logs only if assertion fails
+console.count("counter"); // Counts how many times this label has been called
+console.dir(document.body); // Displays object properties
+```
+
+---
+
+## 2. JavaScript Control Flow
+
+### 2.1 if / else if / else Statements
+
+```javascript
+let score = 85;
+
+if (score >= 90) {
+    console.log("Grade: A");
+} else if (score >= 80) {
+    console.log("Grade: B");
+} else if (score >= 70) {
+    console.log("Grade: C");
+} else if (score >= 60) {
+    console.log("Grade: D");
 } else {
-  console.log('a is less than 5');
+    console.log("Grade: F");
 }
+// Output: "Grade: B"
 ```
 
-Because `a` is neither greater than 5 nor equal to 5, the message `'a is less than 5'` is printed.
+**Nested if statements:**
+
+```javascript
+let age = 25;
+let hasLicense = true;
+
+if (age >= 18) {
+    if (hasLicense) {
+        console.log("You can drive!");
+    } else {
+        console.log("You need a license first.");
+    }
+} else {
+    console.log("You're too young to drive.");
+}
+```
 
 ---
 
-### Ternary Operator
-
-The ternary operator is a shortcut for the `if` statement. It takes three operands: a condition, a result for `true`, and a result for `false`.
-
-```
-condition ? expressionIfTrue : expressionIfFalse
-```
+### 2.2 Ternary Operator
 
 ```javascript
-let a = 10;
-let result = a > 5 ? 'a is greater than 5' : 'a is not greater than 5';
-console.log(result); // prints "a is greater than 5"
-```
+// Syntax: condition ? expressionIfTrue : expressionIfFalse
 
-The ternary operator is useful for short, simple conditions. For more complex conditions, `if`/`else if`/`else` is more readable.
+let age = 20;
+let status = age >= 18 ? "adult" : "minor";
+console.log(status); // "adult"
+
+// Nested ternary (use sparingly — can reduce readability)
+let score = 85;
+let grade = score >= 90 ? "A"
+          : score >= 80 ? "B"
+          : score >= 70 ? "C"
+          : "F";
+console.log(grade); // "B"
+
+// Ternary in template literals
+let isLoggedIn = true;
+console.log(`User is ${isLoggedIn ? "online" : "offline"}`);
+```
 
 ---
 
-### Switch Statement
-
-The `switch` statement performs different actions based on different conditions. It's a good alternative to a series of `if...else if` statements.
+### 2.3 Switch Statement
 
 ```javascript
-switch(expression) {
-  case value1:
-    // code to be executed if expression equals value1
-    break;
-  case value2:
-    // code to be executed if expression equals value2
-    break;
-  default:
-    // code to be executed if expression doesn't match any cases
+let day = "Monday";
+
+switch (day) {
+    case "Monday":
+    case "Tuesday":
+    case "Wednesday":
+    case "Thursday":
+    case "Friday":
+        console.log("Weekday");
+        break;
+    case "Saturday":
+    case "Sunday":
+        console.log("Weekend");
+        break;
+    default:
+        console.log("Invalid day");
 }
+// Output: "Weekday"
 ```
 
-**Example:**
+**Important:** Without `break`, execution "falls through" to the next case:
 
 ```javascript
-let fruit = 'apple';
-switch (fruit) {
-  case 'banana':
-    console.log('I am a banana');
-    break;
-  case 'apple':
-    console.log('I am an apple');
-    break;
-  default:
-    console.log('I am not a banana or an apple');
+let num = 1;
+switch (num) {
+    case 1:
+        console.log("One");
+        // No break — falls through!
+    case 2:
+        console.log("Two");
+        break;
+    case 3:
+        console.log("Three");
+        break;
 }
+// Output: "One" then "Two" (fall-through behavior)
 ```
-
-Because `fruit` is `'apple'`, the message `'I am an apple'` is printed. The `break` keyword prevents the code from running into the next case automatically.
 
 ---
 
-### While Loop
-
-The `while` loop repeatedly executes a block of code as long as a specified condition is `true`.
+### 2.4 While Loop
 
 ```javascript
-while (condition) {
-  // code to be executed as long as the condition is true
+// Basic while loop
+let count = 0;
+while (count < 5) {
+    console.log(count); // 0, 1, 2, 3, 4
+    count++;
+}
+
+// Infinite loop with break condition
+let input;
+while (true) {
+    input = getInput(); // hypothetical function
+    if (input === "quit") break;
+    processInput(input);
 }
 ```
-
-**Example:**
-
-```javascript
-let i = 0;
-while (i < 5) {
-  console.log(i);
-  i++;
-}
-```
-
-The loop prints the numbers `0` through `4`. When `i` becomes `5`, the condition `i < 5` is no longer true, so the loop stops.
 
 ---
 
-### Break & Continue Statements
+### 2.5 Do...While Loop
 
-#### Break
-
-The `break` statement exits the current loop prematurely.
+The key difference: the code block executes **at least once** before the condition is checked.
 
 ```javascript
-for (let i = 0; i < 10; i++) {
-  if (i === 5) {
-    break;
-  }
-  console.log(i);
-}
-// Prints 0 through 4
-```
-
-The loop stops when `i` equals `5`, even though the condition `i < 10` would still be true.
-
-#### Continue
-
-The `continue` statement skips the current iteration and moves to the next one.
-
-```javascript
-for (let i = 0; i < 10; i++) {
-  if (i === 5) {
-    continue;
-  }
-  console.log(i);
-}
-// Prints 0 through 4 and 6 through 9
-```
-
-The number `5` is not printed because `continue` skips that iteration.
-
----
-
-### Do...While Loop
-
-The `do...while` loop executes the block of code **once** before checking the condition, then repeats as long as the condition is `true`.
-
-```javascript
+let i = 10;
 do {
-  // code to be executed
-} while (condition);
-```
-
-**Example:**
-
-```javascript
-let i = 0;
-do {
-  console.log(i);
-  i++;
+    console.log(i); // Prints 10 even though condition is false
+    i++;
 } while (i < 5);
-```
 
-Prints the numbers `0` through `4`.
+// Practical example: input validation
+let userInput;
+do {
+    userInput = prompt("Enter a number greater than 10:");
+} while (userInput <= 10);
+```
 
 ---
 
-### For Loop
-
-The `for` loop repeatedly executes a block of code a certain number of times.
+### 2.6 For Loop
 
 ```javascript
-for (initialization; condition; finalExpression) {
-  // code to be executed on each loop iteration
+// Standard for loop
+for (let i = 0; i < 5; i++) {
+    console.log(i); // 0, 1, 2, 3, 4
+}
+
+// Looping backwards
+for (let i = 10; i >= 0; i--) {
+    console.log(i); // 10, 9, 8, ..., 0
+}
+
+// Looping with step
+for (let i = 0; i <= 20; i += 5) {
+    console.log(i); // 0, 5, 10, 15, 20
+}
+
+// for...of (iterates over values — arrays, strings, etc.)
+let colors = ["red", "green", "blue"];
+for (let color of colors) {
+    console.log(color); // "red", "green", "blue"
+}
+
+// for...in (iterates over keys/indices — objects)
+let person = { name: "John", age: 30, city: "NYC" };
+for (let key in person) {
+    console.log(`${key}: ${person[key]}`);
+}
+// name: John, age: 30, city: NYC
+```
+
+---
+
+### 2.7 Break and Continue
+
+```javascript
+// break — exits the loop entirely
+for (let i = 0; i < 10; i++) {
+    if (i === 5) break;
+    console.log(i); // 0, 1, 2, 3, 4
+}
+
+// continue — skips current iteration
+for (let i = 0; i < 10; i++) {
+    if (i % 2 === 0) continue; // skip even numbers
+    console.log(i); // 1, 3, 5, 7, 9
+}
+
+// Labeled statements (for nested loops)
+outer: for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+        if (i === 1 && j === 1) break outer; // breaks out of BOTH loops
+        console.log(`i=${i}, j=${j}`);
+    }
 }
 ```
 
 ---
 
-### For Loops vs Array Methods
+### 2.8 For Loops vs Array Methods
 
-**For Loop:**
-- Gives you more control over the looping mechanism (initialization, condition, increment/decrement).
-- Can be more efficient for larger datasets.
-- Can `break` out of a loop, which is not possible with `forEach`, `map`, etc.
-
-**Array Methods (`forEach`, `map`, `filter`, `reduce`, etc.):**
-- Provide a more declarative and readable way to perform operations on arrays.
-- `map`, `filter`, `reduce`, etc. return a new array and do **not** mutate the original array.
-- Can be chained together for complex operations in a clean, readable way.
-
-**Example — Doubling elements:**
+| Feature            | For Loop                           | Array Methods                                |
+| ------------------ | ---------------------------------- | -------------------------------------------- |
+| Control            | Full control over iteration        | Declarative, less control                    |
+| `break`/`continue` | Supported                          | Not supported (except `some`/`every` tricks) |
+| Mutation           | Can mutate original array          | `map`, `filter`, `reduce` return new arrays  |
+| Readability        | More verbose                       | More concise and expressive                  |
+| Chaining           | Not chainable                      | Can chain methods together                   |
+| Performance        | Slightly faster for large datasets | Slightly slower but negligible               |
 
 ```javascript
-// For Loop
-let arr = [1, 2, 3, 4, 5];
-for (let i = 0; i < arr.length; i++) {
-  arr[i] = arr[i] * 2;
-}
-
-// Map Method
-let arr2 = [1, 2, 3, 4, 5];
-let doubled = arr2.map(x => x * 2);
-```
-
-In general, if you're working with arrays and don't need to `break`, array methods are cleaner. If you need more control or are working with larger datasets, a `for` loop might be better.
-
----
-
-## JavaScript Functions
-
-### Function Declaration
-
-A function declaration defines a function using the `function` keyword, followed by the name, parameters in parentheses, and the function body in curly braces.
-
-```javascript
-function greet() {
-  console.log("Hello, world!");
-}
-
-greet(); // Calls the function and prints "Hello, world!"
-```
-
-**Key characteristic:** Function declarations are **hoisted**, meaning you can call the function before it's declared in your code:
-
-```javascript
-greet(); // This will work!
-
-function greet() {
-  console.log("Hello, world!");
-}
+// Chaining array methods (powerful pattern)
+let result = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    .filter(n => n % 2 === 0)   // [2, 4, 6, 8, 10]
+    .map(n => n * 3)             // [6, 12, 18, 24, 30]
+    .reduce((sum, n) => sum + n, 0); // 90
 ```
 
 ---
 
-### Function Parameters
+## 3. JavaScript Functions
 
-Function parameters are the names listed in the function definition. They are used to pass values (arguments) into functions.
+### 3.1 Function Declaration (Hoisted)
 
 ```javascript
+// Can be called before declaration due to hoisting
+sayHello(); // Works!
+
+function sayHello() {
+    console.log("Hello!");
+}
+
+// With parameters
+function calculateArea(width, height) {
+    return width * height;
+}
+console.log(calculateArea(5, 10)); // 50
+```
+
+---
+
+### 3.2 Function Parameters
+
+```javascript
+// Default parameters (ES6)
+function greet(name = "World") {
+    console.log(`Hello, ${name}!`);
+}
+greet();        // "Hello, World!"
+greet("Alice"); // "Hello, Alice!"
+
+// Rest parameters (collects remaining arguments into an array)
+function sum(...numbers) {
+    return numbers.reduce((total, n) => total + n, 0);
+}
+console.log(sum(1, 2, 3, 4)); // 10
+
+// Destructured parameters
+function displayUser({ name, age, city = "Unknown" }) {
+    console.log(`${name}, ${age}, from ${city}`);
+}
+displayUser({ name: "John", age: 30 }); // "John, 30, from Unknown"
+
+// Arguments object (available in regular functions, NOT arrow functions)
+function showArgs() {
+    console.log(arguments); // array-like object
+    console.log(arguments[0]); // first argument
+}
+showArgs("a", "b", "c");
+```
+
+---
+
+### 3.3 Function Return
+
+```javascript
+// Single return value
 function add(a, b) {
-  return a + b;
+    return a + b;
 }
 
-let sum = add(1, 2); // 1 is the argument for 'a', 2 is the argument for 'b'
-```
-
-- You can have as many parameters as you want, separated by commas.
-- Extra arguments are ignored.
-- Missing arguments are set to `undefined`.
-
----
-
-### Function Return
-
-The `return` statement ends function execution and specifies a value to be returned to the caller.
-
-```javascript
-function add(a, b) {
-  return a + b;
-}
-
-let sum = add(1, 2); // sum is now 3
-```
-
----
-
-### Function Expressions
-
-A function expression defines a function as an expression, assigned to a variable.
-
-```javascript
-let greet = function() {
-  console.log("Hello, world!");
-};
-
-greet(); // Calls the function and prints "Hello, world!"
-```
-
-**Function expressions are NOT hoisted**, unlike function declarations:
-
-```javascript
-greet(); // This will throw an error!
-
-let greet = function() {
-  console.log("Hello, world!");
-};
-```
-
----
-
-### Anonymous Functions
-
-An anonymous function is a function without a name. It is usually used where a function is expected as an argument (callbacks, event handlers).
-
-```javascript
-let greet = function() {
-  console.log("Hello, world!");
-};
-
-greet();
-```
-
-Anonymous functions as arguments:
-
-```javascript
-setTimeout(function() {
-  console.log("This message is delayed by 1 second.");
-}, 1000);
-```
-
----
-
-### Arrow Functions
-
-Arrow functions provide a concise syntax for writing function expressions. They are anonymous and change the way `this` binds.
-
-```javascript
-let greet = () => {
-  console.log("Hello, world!");
-};
-
-greet();
-```
-
-With parameters:
-
-```javascript
-let add = (a, b) => a + b;
-let sum = add(1, 2); // sum is now 3
-```
-
-With a single parameter (parentheses can be omitted):
-
-```javascript
-let square = x => x * x;
-let result = square(5); // result is now 25
-```
-
----
-
-### Arrow Functions vs Regular Functions
-
-| Feature | Regular Functions | Arrow Functions |
-|---|---|---|
-| **Syntax** | `function(a, b) { return a + b; }` | `(a, b) => a + b` |
-| **`this` keyword** | Refers to the object that called the function | Lexically bound (inherits `this` from surrounding code) |
-| **`arguments` object** | Has its own `arguments` object | Does **not** have `arguments`; use rest parameters instead |
-| **Constructors** | Can be used with `new` | Cannot be used with `new` |
-| **Method definitions** | Preferred for object methods (correct `this`) | Not ideal for object methods |
-
-**`this` example:**
-
-```javascript
-// Regular function — `this` is undefined in the inner function
-let obj1 = {
-  value: 'a',
-  createAnonFunction: function() {
-    return function() {
-      console.log(this.value);
+// Return multiple values using an object
+function getMinMax(arr) {
+    return {
+        min: Math.min(...arr),
+        max: Math.max(...arr)
     };
-  }
-};
-obj1.createAnonFunction()(); // undefined
+}
+let { min, max } = getMinMax([3, 1, 4, 1, 5, 9]);
+console.log(min, max); // 1 9
 
-// Arrow function — `this` is inherited from the outer function
-let obj2 = {
-  value: 'a',
-  createArrowFunction: function() {
-    return () => {
-      console.log(this.value);
+// Early return pattern
+function processAge(age) {
+    if (age < 0) return "Invalid age";
+    if (age < 18) return "Minor";
+    return "Adult";
+}
+```
+
+---
+
+### 3.4 Function Expressions (Not Hoisted)
+
+```javascript
+// Anonymous function expression
+const greet = function() {
+    console.log("Hello!");
+};
+
+// Named function expression (useful for recursion and stack traces)
+const factorial = function fact(n) {
+    return n <= 1 ? 1 : n * fact(n - 1);
+};
+console.log(factorial(5)); // 120
+```
+
+---
+
+### 3.5 Arrow Functions (ES6)
+
+```javascript
+// Full syntax
+const add = (a, b) => {
+    return a + b;
+};
+
+// Concise body (implicit return)
+const add = (a, b) => a + b;
+
+// Single parameter (parentheses optional)
+const square = x => x * x;
+
+// No parameters
+const greet = () => "Hello!";
+
+// Returning an object literal (wrap in parentheses)
+const createUser = (name, age) => ({ name, age });
+console.log(createUser("John", 30)); // { name: "John", age: 30 }
+```
+
+#### Arrow Functions vs Regular Functions
+
+| Feature            | Regular Function             | Arrow Function                       |
+| ------------------ | ---------------------------- | ------------------------------------ |
+| `this` binding     | Dynamic (depends on caller)  | Lexical (inherits from parent scope) |
+| `arguments` object | Available                    | Not available (use rest params)      |
+| `new` keyword      | Can be used as constructor   | Cannot be used as constructor        |
+| `prototype`        | Has prototype property       | No prototype property                |
+| Hoisting           | Declarations are hoisted     | Not hoisted                          |
+| Method definition  | Preferred for object methods | Avoid for object methods             |
+
+```javascript
+// this behavior difference
+const obj = {
+    value: 42,
+    regularMethod: function() {
+        setTimeout(function() {
+            console.log(this.value); // undefined (this = global/window)
+        }, 100);
+    },
+    arrowMethod: function() {
+        setTimeout(() => {
+            console.log(this.value); // 42 (this = obj)
+        }, 100);
+    }
+};
+```
+
+---
+
+### 3.6 IIFE (Immediately Invoked Function Expression)
+
+```javascript
+// Creates a private scope
+(function() {
+    let privateVar = "I'm private";
+    console.log(privateVar);
+})();
+// console.log(privateVar); // ERROR: not defined
+
+// Arrow function IIFE
+(() => {
+    console.log("Arrow IIFE");
+})();
+
+// With parameters
+((name) => {
+    console.log(`Hello, ${name}!`);
+})("World");
+```
+
+---
+
+### 3.7 Closures
+
+A closure is a function that remembers the variables from its outer scope even after the outer function has returned.
+
+```javascript
+function createCounter() {
+    let count = 0;
+    return {
+        increment: () => ++count,
+        decrement: () => --count,
+        getCount: () => count
     };
-  }
-};
-obj2.createArrowFunction()(); // 'a'
-```
-
----
-
-## JavaScript Arrays
-
-### Array Declaration
-
-Arrays can be declared in several ways:
-
-1. **Array literal** (most common):
-
-```javascript
-let fruits = ['apple', 'banana', 'cherry'];
-```
-
-2. **Array constructor:**
-
-```javascript
-let fruits = new Array('apple', 'banana', 'cherry');
-```
-
-3. **`Array.of()` method:**
-
-```javascript
-let fruits = Array.of('apple', 'banana', 'cherry');
-```
-
-4. **`Array.from()` method:**
-
-```javascript
-let fruits = Array.from(['apple', 'banana', 'cherry']);
-```
-
----
-
-### Array Indexes
-
-Each item in an array is assigned a numeric index, starting at `0`.
-
-```javascript
-let fruits = ['apple', 'banana', 'cherry'];
-console.log(fruits[0]); // 'apple'
-console.log(fruits[1]); // 'banana'
-console.log(fruits[2]); // 'cherry'
-```
-
-You can use the index to modify elements:
-
-```javascript
-fruits[1] = 'blueberry'; // changes 'banana' to 'blueberry'
-console.log(fruits[1]); // 'blueberry'
-```
-
----
-
-### Array Length
-
-The `length` property returns the number of elements in the array. It's a property, not a method.
-
-```javascript
-let fruits = ['apple', 'banana', 'cherry'];
-console.log(fruits.length); // 3
-```
-
-You can also use `length` to truncate an array:
-
-```javascript
-fruits.length = 2;
-console.log(fruits); // ['apple', 'banana']
-```
-
----
-
-### Array Destructuring
-
-Array destructuring allows you to unpack values from arrays into distinct variables.
-
-```javascript
-let fruits = ['apple', 'banana', 'cherry'];
-let [fruit1, fruit2, fruit3] = fruits;
-
-console.log(fruit1); // 'apple'
-console.log(fruit2); // 'banana'
-console.log(fruit3); // 'cherry'
-```
-
-You can skip elements:
-
-```javascript
-let [fruit1, , fruit3] = fruits;
-
-console.log(fruit1); // 'apple'
-console.log(fruit3); // 'cherry'
-```
-
----
-
-### The Spread Operator
-
-The `...` notation (spread operator) allows an iterable to be expanded in places where zero or more arguments or elements are expected.
-
-**Creating a new array:**
-
-```javascript
-let fruits = ['apple', 'banana', 'cherry'];
-let moreFruits = [...fruits, 'date', 'elderberry'];
-
-console.log(moreFruits); // ['apple', 'banana', 'cherry', 'date', 'elderberry']
-```
-
-**Combining two arrays:**
-
-```javascript
-let fruits1 = ['apple', 'banana'];
-let fruits2 = ['cherry', 'date'];
-let allFruits = [...fruits1, ...fruits2];
-
-console.log(allFruits); // ['apple', 'banana', 'cherry', 'date']
-```
-
----
-
-## JavaScript Array Methods
-
-### Array Push
-
-The `push()` method adds one or more elements to the **end** of an array. It modifies the original array and returns the new length.
-
-```javascript
-let fruits = ['apple', 'banana'];
-fruits.push('orange'); // fruits is now ['apple', 'banana', 'orange']
-```
-
-Adding multiple elements:
-
-```javascript
-fruits.push('orange', 'pineapple'); // ['apple', 'banana', 'orange', 'pineapple']
-```
-
----
-
-### Array Pop
-
-The `pop()` method removes the **last** element from an array and returns that element.
-
-```javascript
-let fruits = ['apple', 'banana', 'orange'];
-let lastFruit = fruits.pop(); // lastFruit is 'orange', fruits is now ['apple', 'banana']
-```
-
----
-
-### Array Shift
-
-The `shift()` method removes the **first** element from an array and returns that element.
-
-```javascript
-let fruits = ['apple', 'banana', 'orange'];
-let firstFruit = fruits.shift(); // firstFruit is 'apple', fruits is now ['banana', 'orange']
-```
-
----
-
-### Array Unshift
-
-The `unshift()` method adds one or more elements to the **beginning** of an array and returns the new length.
-
-```javascript
-let fruits = ['banana', 'orange'];
-fruits.unshift('apple'); // fruits is now ['apple', 'banana', 'orange']
-```
-
-Adding multiple elements:
-
-```javascript
-fruits.unshift('apple', 'pineapple'); // ['apple', 'pineapple', 'banana', 'orange']
-```
-
----
-
-### Array Concat
-
-The `concat()` method merges two or more arrays into a **new** array. It does **not** change the existing arrays.
-
-```javascript
-let fruits1 = ['apple', 'banana'];
-let fruits2 = ['orange', 'pineapple'];
-let allFruits = fruits1.concat(fruits2); // ['apple', 'banana', 'orange', 'pineapple']
-```
-
-Concatenating more than two arrays:
-
-```javascript
-let fruits3 = ['mango', 'kiwi'];
-let allFruits = fruits1.concat(fruits2, fruits3);
-// ['apple', 'banana', 'orange', 'pineapple', 'mango', 'kiwi']
-```
-
----
-
-### Array Slice
-
-The `slice()` method returns a **shallow copy** of a portion of an array. The original array is **not** modified.
-
-```javascript
-let fruits = ['apple', 'banana', 'orange', 'pineapple', 'mango'];
-let citrusFruits = fruits.slice(2, 4); // ['orange', 'pineapple']
-```
-
-If `end` is not specified, `slice()` returns all elements from `start` to the end:
-
-```javascript
-let someFruits = fruits.slice(2); // ['orange', 'pineapple', 'mango']
-```
-
----
-
-### Array Splice
-
-The `splice()` method changes the contents of an array by removing, replacing, or adding elements. It **modifies** the original array.
-
-**1. Removing elements:**
-
-```javascript
-let fruits = ['apple', 'banana', 'orange', 'pineapple', 'mango'];
-let removedFruits = fruits.splice(2, 2);
-// removedFruits is ['orange', 'pineapple']
-// fruits is now ['apple', 'banana', 'mango']
-```
-
-**2. Adding elements:**
-
-```javascript
-let fruits = ['apple', 'banana', 'mango'];
-fruits.splice(2, 0, 'orange', 'pineapple');
-// fruits is now ['apple', 'banana', 'orange', 'pineapple', 'mango']
-```
-
-**3. Replacing elements:**
-
-```javascript
-let fruits = ['apple', 'banana', 'mango'];
-fruits.splice(1, 1, 'orange');
-// fruits is now ['apple', 'orange', 'mango']
-```
-
----
-
-### Array Join
-
-The `join()` method joins all elements of an array into a string. The default separator is a comma (`,`).
-
-```javascript
-let fruits = ['apple', 'banana', 'orange'];
-let fruitsString = fruits.join(); // 'apple,banana,orange'
-```
-
-With a custom separator:
-
-```javascript
-let fruitsString = fruits.join(' - '); // 'apple - banana - orange'
-```
-
----
-
-### Array Reverse
-
-The `reverse()` method reverses the order of elements in an array **in place** (mutates the original).
-
-```javascript
-let fruits = ['apple', 'banana', 'orange'];
-fruits.reverse(); // ['orange', 'banana', 'apple']
-```
-
----
-
-### Array Sort
-
-The `sort()` method sorts elements in place. By default, it converts elements to strings and sorts by UTF-16 code unit values.
-
-```javascript
-let fruits = ['banana', 'apple', 'orange'];
-fruits.sort(); // ['apple', 'banana', 'orange']
-```
-
-> **Warning:** `sort()` can behave unexpectedly with numbers. Use a compare function for numeric sorting:
-
-```javascript
-let numbers = [40, 1, 5, 200];
-numbers.sort(function(a, b) {
-  return a - b;
-}); // [1, 5, 40, 200]
-```
-
----
-
-### Array indexOf
-
-The `indexOf()` method returns the **first index** of a specified element, or `-1` if not found.
-
-```javascript
-let fruits = ['apple', 'banana', 'orange'];
-let index = fruits.indexOf('banana'); // 1
-let index2 = fruits.indexOf('pineapple'); // -1
-```
-
----
-
-### Array findIndex
-
-The `findIndex()` method returns the index of the **first element** that satisfies a testing function, or `-1` if none found.
-
-```javascript
-let numbers = [5, 12, 8, 130, 44];
-let isLargeNumber = (element) => element > 13;
-let index = numbers.findIndex(isLargeNumber); // 3
-```
-
----
-
-### Array find
-
-The `find()` method returns the **value** of the first element that satisfies a testing function, or `undefined` if none found.
-
-```javascript
-let numbers = [5, 12, 8, 130, 44];
-let isLargeNumber = (element) => element > 13;
-let found = numbers.find(isLargeNumber); // 130
-```
-
----
-
-### Array filter
-
-The `filter()` method creates a **new array** with all elements that pass the test.
-
-```javascript
-let numbers = [5, 12, 8, 130, 44];
-let isLargeNumber = (element) => element > 13;
-let filtered = numbers.filter(isLargeNumber); // [130, 44]
-```
-
-If no elements pass, it returns an empty array `[]`.
-
----
-
-### Array map
-
-The `map()` method creates a **new array** with the results of calling a function on every element.
-
-```javascript
-let numbers = [1, 4, 9, 16];
-let roots = numbers.map(Math.sqrt); // [1, 2, 3, 4]
-```
-
-With a custom function:
-
-```javascript
-let doubles = numbers.map((num) => num * 2); // [2, 8, 18, 32]
-```
-
----
-
-### Array reduce
-
-The `reduce()` method applies a function against an **accumulator** and each element to reduce the array to a single value.
-
-```javascript
-let numbers = [1, 2, 3, 4];
-let sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue);
-// sum is 10
-```
-
-With an initial value:
-
-```javascript
-let sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 10);
-// sum is 20
-```
-
----
-
-### Array every
-
-The `every()` method tests whether **all** elements pass the test. Returns a Boolean.
-
-```javascript
-let numbers = [1, 30, 39, 29, 10, 13];
-let isBelowThreshold = (currentValue) => currentValue < 40;
-let result = numbers.every(isBelowThreshold); // true
-```
-
----
-
-### Array some
-
-The `some()` method tests whether **at least one** element passes the test. Returns a Boolean.
-
-```javascript
-let numbers = [1, 2, 3, 4, 5];
-let isEven = (element) => element % 2 === 0;
-let result = numbers.some(isEven); // true
-```
-
----
-
-### Array forEach
-
-The `forEach()` method executes a provided function once for each array element. It does **not** return a value.
-
-```javascript
-let numbers = [1, 2, 3, 4, 5];
-numbers.forEach((element) => console.log(element));
-```
-
-> **Note:** If you need a new array, use `map()`. If you need a Boolean, use `every()` or `some()`. If you need to find an element, use `find()`.
-
----
-
-### Array isArray
-
-The `Array.isArray()` method determines whether the passed value is an Array. Returns a Boolean.
-
-```javascript
-let fruits = ['apple', 'banana', 'orange'];
-Array.isArray(fruits); // true
-
-let number = 123;
-Array.isArray(number); // false
-```
-
----
-
-### Array includes
-
-The `includes()` method determines whether an array includes a certain value. Returns `true` or `false`.
-
-```javascript
-let fruits = ['apple', 'banana', 'orange'];
-fruits.includes('banana');    // true
-fruits.includes('pineapple'); // false
-```
-
----
-
-### Array fill
-
-The `fill()` method changes all elements in an array to a static value. It modifies the original array.
-
-```javascript
-let numbers = [1, 2, 3, 4, 5];
-numbers.fill(0); // [0, 0, 0, 0, 0]
-```
-
-With start and end index:
-
-```javascript
-let numbers = [1, 2, 3, 4, 5];
-numbers.fill(0, 1, 3); // [1, 0, 0, 4, 5]
-```
-
----
-
-### Array flat
-
-The `flat()` method creates a new array with all sub-array elements concatenated recursively up to the specified depth.
-
-```javascript
-let nestedArray = [1, 2, [3, 4]];
-let flatArray = nestedArray.flat(); // [1, 2, 3, 4]
-```
-
-For deeper nesting, specify the depth:
-
-```javascript
-let deeplyNestedArray = [1, [2, [3, [4]]]];
-let flatArray = deeplyNestedArray.flat(3); // [1, 2, 3, 4]
-```
-
----
-
-### Array flatMap
-
-The `flatMap()` method first maps each element using a mapping function, then flattens the result by one level. More efficient than calling `map()` then `flat()`.
-
-```javascript
-let arr = [1, 2, 3, 4];
-let newArr = arr.flatMap(x => [x * 2]); // [2, 4, 6, 8]
-```
-
-Interleaving data:
-
-```javascript
-let arr = ["it's Sunny in", "", "California"];
-let newArr = arr.flatMap(x => x.split(' '));
-// ["it's", "Sunny", "in", "", "California"]
-```
-
----
-
-### Array from
-
-The `Array.from()` method creates a new, shallow-copied Array from an array-like or iterable object.
-
-```javascript
-let string = 'hello';
-let array = Array.from(string); // ['h', 'e', 'l', 'l', 'o']
-```
-
----
-
-### Array keys
-
-The `keys()` method returns a new Array Iterator containing the **keys** (indices) for each index.
-
-```javascript
-let array = ['a', 'b', 'c'];
-let iterator = array.keys();
-
-for (let key of iterator) {
-  console.log(key); // 0, then 1, then 2
 }
-```
 
----
+const counter = createCounter();
+counter.increment(); // 1
+counter.increment(); // 2
+counter.decrement(); // 1
+console.log(counter.getCount()); // 1
 
-### Array values
-
-The `values()` method returns a new Array Iterator containing the **values** for each index.
-
-```javascript
-let array = ['a', 'b', 'c'];
-let iterator = array.values();
-
-for (let value of iterator) {
-  console.log(value); // 'a', then 'b', then 'c'
+// Practical example: function factory
+function multiplier(factor) {
+    return (number) => number * factor;
 }
+const double = multiplier(2);
+const triple = multiplier(3);
+console.log(double(5));  // 10
+console.log(triple(5));  // 15
 ```
 
 ---
 
-### Array entries
+### 3.8 Higher-Order Functions
 
-The `entries()` method returns a new Array Iterator containing **key/value pairs** for each index.
+Functions that take other functions as arguments or return functions.
 
 ```javascript
-let array = ['a', 'b', 'c'];
-let iterator = array.entries();
-
-for (let [index, value] of iterator) {
-  console.log(`index: ${index}, value: ${value}`);
-  // 'index: 0, value: a', 'index: 1, value: b', 'index: 2, value: c'
+// Function as argument
+function applyOperation(a, b, operation) {
+    return operation(a, b);
 }
+console.log(applyOperation(5, 3, (a, b) => a + b)); // 8
+console.log(applyOperation(5, 3, (a, b) => a * b)); // 15
+
+// Function returning a function
+function greeting(prefix) {
+    return function(name) {
+        return `${prefix}, ${name}!`;
+    };
+}
+const sayHi = greeting("Hi");
+const sayHello = greeting("Hello");
+console.log(sayHi("Alice"));    // "Hi, Alice!"
+console.log(sayHello("Bob"));   // "Hello, Bob!"
 ```
 
 ---
 
-## JavaScript Objects
+## 4. JavaScript Arrays
 
-JavaScript objects are containers for named values, called **properties** and **methods**.
+### 4.1 Array Declaration
 
 ```javascript
-let car = {
-  maker: "Toyota",
-  model: "Camry",
-  year: 2020,
-  startEngine: function() {
-    return "Engine started";
-  }
-};
-```
+// Array literal (most common)
+let fruits = ['apple', 'banana', 'cherry'];
 
-Access properties using **dot notation** (`car.maker`) or **bracket notation** (`car["maker"]`), and call methods like `car.startEngine()`.
+// Array constructor
+let numbers = new Array(1, 2, 3);
+
+// Array.of()
+let items = Array.of(1, 2, 3);
+
+// Array.from() — from iterables or array-like objects
+let chars = Array.from('hello'); // ['h', 'e', 'l', 'l', 'o']
+let nums = Array.from({length: 5}, (_, i) => i); // [0, 1, 2, 3, 4]
+
+// Empty array with specific length
+let empty = new Array(5); // [empty × 5]
+let zeros = new Array(5).fill(0); // [0, 0, 0, 0, 0]
+```
 
 ---
 
-### Object Declaration
-
-1. **Object Literal Syntax** (most common):
+### 4.2 Array Indexes and Length
 
 ```javascript
-let obj = {
-  key1: 'value1',
-  key2: 'value2',
-  key3: 'value3'
-};
+let fruits = ['apple', 'banana', 'cherry'];
+
+// Accessing elements
+fruits[0]  // 'apple'
+fruits[2]  // 'cherry'
+fruits[-1] // undefined (use fruits.at(-1) for last element in ES2022)
+fruits.at(-1) // 'cherry' (ES2022)
+
+// Modifying elements
+fruits[1] = 'blueberry';
+
+// Length
+fruits.length // 3
+
+// Truncating array
+fruits.length = 2; // fruits is now ['apple', 'blueberry']
 ```
 
-2. **Object Constructor:**
+---
+
+### 4.3 Array Destructuring
 
 ```javascript
+let [a, b, c] = [1, 2, 3];
+console.log(a, b, c); // 1 2 3
+
+// Skip elements
+let [first, , third] = [1, 2, 3];
+console.log(first, third); // 1 3
+
+// Rest pattern
+let [head, ...tail] = [1, 2, 3, 4, 5];
+console.log(head); // 1
+console.log(tail); // [2, 3, 4, 5]
+
+// Default values
+let [x = 10, y = 20] = [1];
+console.log(x, y); // 1 20
+
+// Swapping variables
+let m = 1, n = 2;
+[m, n] = [n, m];
+console.log(m, n); // 2 1
+
+// Nested destructuring
+let [a2, [b2, c2]] = [1, [2, 3]];
+console.log(a2, b2, c2); // 1 2 3
+```
+
+---
+
+### 4.4 The Spread Operator (`...`)
+
+```javascript
+// Expanding arrays
+let arr1 = [1, 2, 3];
+let arr2 = [...arr1, 4, 5]; // [1, 2, 3, 4, 5]
+
+// Combining arrays
+let combined = [...arr1, ...arr2]; // [1, 2, 3, 1, 2, 3, 4, 5]
+
+// Copying arrays (shallow copy)
+let copy = [...arr1]; // [1, 2, 3]
+
+// Spread in function calls
+function sum(a, b, c) { return a + b + c; }
+console.log(sum(...arr1)); // 6
+
+// Spread with strings
+let letters = [..."hello"]; // ['h', 'e', 'l', 'l', 'o']
+
+// Finding max/min
+let nums = [3, 1, 4, 1, 5, 9];
+Math.max(...nums); // 9
+Math.min(...nums); // 1
+```
+
+---
+
+## 5. JavaScript Array Methods
+
+### 5.1 Mutating Methods (modify original array)
+
+#### `push()` — Add to end
+
+```javascript
+let arr = [1, 2];
+arr.push(3);       // arr = [1, 2, 3], returns 3 (new length)
+arr.push(4, 5);    // arr = [1, 2, 3, 4, 5], returns 5
+```
+
+#### `pop()` — Remove from end
+
+```javascript
+let arr = [1, 2, 3];
+let last = arr.pop(); // last = 3, arr = [1, 2]
+```
+
+#### `unshift()` — Add to beginning
+
+```javascript
+let arr = [2, 3];
+arr.unshift(1);     // arr = [1, 2, 3], returns 3
+arr.unshift(-1, 0); // arr = [-1, 0, 1, 2, 3]
+```
+
+#### `shift()` — Remove from beginning
+
+```javascript
+let arr = [1, 2, 3];
+let first = arr.shift(); // first = 1, arr = [2, 3]
+```
+
+#### `splice()` — Remove, add, or replace elements
+
+```javascript
+let arr = ['a', 'b', 'c', 'd', 'e'];
+
+// Remove: splice(startIndex, deleteCount)
+arr.splice(1, 2);    // removes 'b','c' → arr = ['a', 'd', 'e']
+
+// Add: splice(startIndex, 0, ...items)
+arr.splice(1, 0, 'x', 'y'); // arr = ['a', 'x', 'y', 'd', 'e']
+
+// Replace: splice(startIndex, deleteCount, ...items)
+arr.splice(1, 1, 'z'); // replaces 'x' with 'z' → arr = ['a', 'z', 'y', 'd', 'e']
+```
+
+#### `reverse()` — Reverse in place
+
+```javascript
+let arr = [1, 2, 3];
+arr.reverse(); // arr = [3, 2, 1]
+```
+
+#### `sort()` — Sort in place
+
+```javascript
+// Alphabetical (default)
+['banana', 'apple', 'cherry'].sort(); // ['apple', 'banana', 'cherry']
+
+// Numeric ascending
+[40, 1, 5, 200].sort((a, b) => a - b); // [1, 5, 40, 200]
+
+// Numeric descending
+[40, 1, 5, 200].sort((a, b) => b - a); // [200, 40, 5, 1]
+
+// Sort objects by property
+let people = [{name: "John", age: 30}, {name: "Jane", age: 25}];
+people.sort((a, b) => a.age - b.age);
+// [{name: "Jane", age: 25}, {name: "John", age: 30}]
+```
+
+#### `fill()` — Fill with static value
+
+```javascript
+[1, 2, 3, 4, 5].fill(0);       // [0, 0, 0, 0, 0]
+[1, 2, 3, 4, 5].fill(0, 1, 3); // [1, 0, 0, 4, 5]
+```
+
+---
+
+### 5.2 Non-Mutating Methods (return new array/value)
+
+#### `concat()` — Merge arrays
+
+```javascript
+let a = [1, 2];
+let b = [3, 4];
+let c = a.concat(b);       // [1, 2, 3, 4]
+let d = a.concat(b, [5]);  // [1, 2, 3, 4, 5]
+```
+
+#### `slice()` — Extract portion
+
+```javascript
+let arr = ['a', 'b', 'c', 'd', 'e'];
+arr.slice(1, 3);  // ['b', 'c']
+arr.slice(2);     // ['c', 'd', 'e']
+arr.slice(-2);    // ['d', 'e']
+arr.slice();      // ['a', 'b', 'c', 'd', 'e'] (shallow copy)
+```
+
+#### `join()` — Array to string
+
+```javascript
+['apple', 'banana', 'cherry'].join();     // "apple,banana,cherry"
+['apple', 'banana', 'cherry'].join(' - '); // "apple - banana - cherry"
+['2024', '01', '15'].join('-');            // "2024-01-15"
+```
+
+#### `indexOf()` — Find index of value
+
+```javascript
+let arr = ['a', 'b', 'c', 'b'];
+arr.indexOf('b');     // 1 (first occurrence)
+arr.indexOf('b', 2);  // 3 (search from index 2)
+arr.indexOf('z');     // -1 (not found)
+```
+
+#### `includes()` — Check if value exists
+
+```javascript
+[1, 2, 3].includes(2);    // true
+[1, 2, 3].includes(4);    // false
+[1, 2, NaN].includes(NaN); // true (unlike indexOf)
+```
+
+#### `find()` — Find first matching element
+
+```javascript
+let users = [
+    { id: 1, name: "Alice" },
+    { id: 2, name: "Bob" },
+    { id: 3, name: "Charlie" }
+];
+let user = users.find(u => u.id === 2);
+console.log(user); // { id: 2, name: "Bob" }
+```
+
+#### `findIndex()` — Find index of first match
+
+```javascript
+let nums = [5, 12, 8, 130, 44];
+nums.findIndex(n => n > 13); // 3 (index of 130)
+nums.findIndex(n => n > 200); // -1
+```
+
+#### `filter()` — Filter elements
+
+```javascript
+let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let evens = nums.filter(n => n % 2 === 0); // [2, 4, 6, 8, 10]
+
+// Remove falsy values
+let mixed = [0, 1, false, 2, '', 3, null, undefined, NaN];
+let truthy = mixed.filter(Boolean); // [1, 2, 3]
+
+// Remove duplicates (with Set)
+let unique = [...new Set([1, 2, 2, 3, 3, 4])]; // [1, 2, 3, 4]
+```
+
+#### `map()` — Transform elements
+
+```javascript
+let nums = [1, 4, 9, 16];
+let roots = nums.map(Math.sqrt);       // [1, 2, 3, 4]
+let doubled = nums.map(n => n * 2);    // [2, 8, 18, 32]
+
+// Extract property from objects
+let users = [{name: "Alice"}, {name: "Bob"}];
+let names = users.map(u => u.name); // ["Alice", "Bob"]
+```
+
+#### `reduce()` — Reduce to single value
+
+```javascript
+// Sum
+let sum = [1, 2, 3, 4].reduce((acc, cur) => acc + cur, 0); // 10
+
+// Max value
+let max = [3, 1, 4, 1, 5].reduce((a, b) => Math.max(a, b)); // 5
+
+// Count occurrences
+let fruits = ['apple', 'banana', 'apple', 'cherry', 'banana', 'apple'];
+let count = fruits.reduce((acc, fruit) => {
+    acc[fruit] = (acc[fruit] || 0) + 1;
+    return acc;
+}, {});
+// { apple: 3, banana: 2, cherry: 1 }
+
+// Flatten array
+let nested = [[1, 2], [3, 4], [5, 6]];
+let flat = nested.reduce((acc, arr) => acc.concat(arr), []); // [1,2,3,4,5,6]
+
+// Group by property
+let people = [
+    { name: "Alice", dept: "Engineering" },
+    { name: "Bob", dept: "Marketing" },
+    { name: "Charlie", dept: "Engineering" }
+];
+let grouped = people.reduce((acc, person) => {
+    (acc[person.dept] = acc[person.dept] || []).push(person);
+    return acc;
+}, {});
+```
+
+#### `every()` — Test if ALL elements pass
+
+```javascript
+[2, 4, 6, 8].every(n => n % 2 === 0);  // true
+[2, 4, 5, 8].every(n => n % 2 === 0);  // false
+```
+
+#### `some()` — Test if ANY element passes
+
+```javascript
+[1, 3, 5, 7].some(n => n % 2 === 0);  // false
+[1, 3, 4, 7].some(n => n % 2 === 0);  // true
+```
+
+#### `forEach()` — Execute function for each element
+
+```javascript
+['a', 'b', 'c'].forEach((element, index) => {
+    console.log(`${index}: ${element}`);
+});
+// 0: a
+// 1: b
+// 2: c
+// Note: forEach returns undefined, cannot break out of it
+```
+
+#### `flat()` — Flatten nested arrays
+
+```javascript
+[1, [2, [3, [4]]]].flat();    // [1, 2, [3, [4]]]
+[1, [2, [3, [4]]]].flat(2);   // [1, 2, 3, [4]]
+[1, [2, [3, [4]]]].flat(Infinity); // [1, 2, 3, 4]
+```
+
+#### `flatMap()` — Map then flatten (depth 1)
+
+```javascript
+let sentences = ["Hello World", "Goodbye Moon"];
+let words = sentences.flatMap(s => s.split(' '));
+// ["Hello", "World", "Goodbye", "Moon"]
+
+// Useful for filtering and mapping simultaneously
+let nums = [1, 2, 3, 4, 5];
+nums.flatMap(n => n % 2 === 0 ? [n * 2] : []);
+// [4, 8] — filters evens and doubles them
+```
+
+#### `Array.isArray()` — Check if value is array
+
+```javascript
+Array.isArray([1, 2, 3]);  // true
+Array.isArray('hello');     // false
+Array.isArray({length: 3}); // false
+```
+
+#### `Array.from()` — Create array from iterable
+
+```javascript
+Array.from('hello');                    // ['h', 'e', 'l', 'l', 'o']
+Array.from({length: 3}, (_, i) => i);  // [0, 1, 2]
+Array.from(new Set([1, 1, 2, 3]));     // [1, 2, 3]
+```
+
+#### `keys()`, `values()`, `entries()` — Iterators
+
+```javascript
+let arr = ['a', 'b', 'c'];
+
+for (let key of arr.keys())     console.log(key);   // 0, 1, 2
+for (let val of arr.values())   console.log(val);   // 'a', 'b', 'c'
+for (let [i, v] of arr.entries()) console.log(i, v); // 0 'a', 1 'b', 2 'c'
+```
+
+---
+
+## 6. JavaScript Objects
+
+### 6.1 Object Declaration
+
+```javascript
+// Object literal
+let person = {
+    name: "John",
+    age: 30,
+    greet() {
+        return `Hi, I'm ${this.name}`;
+    }
+};
+
+// Object constructor
 let obj = new Object();
-obj.key1 = 'value1';
-obj.key2 = 'value2';
-obj.key3 = 'value3';
+obj.name = "John";
+
+// Constructor function
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+}
+let john = new Person("John", 30);
+
+// ES6 Class syntax
+class Animal {
+    constructor(name, sound) {
+        this.name = name;
+        this.sound = sound;
+    }
+    speak() {
+        return `${this.name} says ${this.sound}`;
+    }
+}
+let dog = new Animal("Dog", "Woof");
+
+// Object.create()
+let proto = { greet() { return "Hello"; } };
+let child = Object.create(proto);
+child.greet(); // "Hello"
+
+// Shorthand property names (ES6)
+let name = "John", age = 30;
+let user = { name, age }; // same as { name: name, age: age }
 ```
 
-3. **Constructor Function** (for creating multiple objects with the same structure):
+---
+
+### 6.2 Accessing, Adding, Updating, and Deleting Properties
 
 ```javascript
-function MyObject(key1, key2, key3) {
-  this.key1 = key1;
-  this.key2 = key2;
-  this.key3 = key3;
+let car = { maker: "Toyota", model: "Camry", year: 2020 };
+
+// Access
+car.maker;        // "Toyota" (dot notation)
+car["model"];     // "Camry" (bracket notation)
+
+// Dynamic property access
+let prop = "year";
+car[prop];        // 2020
+
+// Update
+car.year = 2024;
+
+// Add
+car.color = "blue";
+
+// Delete
+delete car.color;
+console.log(car.color); // undefined
+
+// Computed property names (ES6)
+let key = "status";
+let obj = { [key]: "active" }; // { status: "active" }
+```
+
+---
+
+### 6.3 Checking if a Property Exists
+
+```javascript
+let obj = { a: 1, b: undefined };
+
+// in operator (checks own + prototype chain)
+'a' in obj;  // true
+'c' in obj;  // false
+
+// hasOwnProperty (own properties only)
+obj.hasOwnProperty('a'); // true
+
+// Object.hasOwn() (ES2022 — recommended)
+Object.hasOwn(obj, 'a'); // true
+
+// Note the difference with undefined values:
+obj.b !== undefined; // false (WRONG — property exists but is undefined)
+'b' in obj;          // true (CORRECT)
+```
+
+---
+
+### 6.4 Iterating Over Objects
+
+```javascript
+let person = { name: "John", age: 30, city: "NYC" };
+
+// for...in loop
+for (let key in person) {
+    if (person.hasOwnProperty(key)) {
+        console.log(`${key}: ${person[key]}`);
+    }
 }
 
-let obj = new MyObject('value1', 'value2', 'value3');
+// Object.keys() — array of keys
+Object.keys(person);   // ["name", "age", "city"]
+
+// Object.values() — array of values
+Object.values(person);  // ["John", 30, "NYC"]
+
+// Object.entries() — array of [key, value] pairs
+Object.entries(person); // [["name","John"], ["age",30], ["city","NYC"]]
+
+// Practical: convert entries back to object
+let entries = [["name", "John"], ["age", 30]];
+let obj = Object.fromEntries(entries); // { name: "John", age: 30 }
 ```
 
 ---
 
-### Object Properties
-
-You can read an object property using **dot notation** or **bracket notation**.
+### 6.5 Useful Object Methods
 
 ```javascript
-let obj = {
-  key1: 'value1',
-  key2: 'value2',
-  key3: 'value3'
-};
+// Object.assign() — copy/merge objects
+let target = { a: 1 };
+let source = { b: 2, c: 3 };
+Object.assign(target, source); // target = { a: 1, b: 2, c: 3 }
 
-console.log(obj.key1);      // 'value1'
-console.log(obj['key1']);    // 'value1'
+// Spread operator for objects (ES2018)
+let merged = { ...target, ...source, d: 4 };
+
+// Object.freeze() — prevent modifications
+let frozen = Object.freeze({ x: 1, y: 2 });
+frozen.x = 10; // Silently fails (or throws in strict mode)
+
+// Object.seal() — prevent adding/deleting, allow updating
+let sealed = Object.seal({ x: 1, y: 2 });
+sealed.x = 10;  // Works
+sealed.z = 3;   // Fails
+delete sealed.x; // Fails
+
+// Destructuring objects
+let { name, age, city = "Unknown" } = person;
+
+// Renaming during destructuring
+let { name: fullName, age: years } = person;
+console.log(fullName); // "John"
 ```
 
 ---
 
-### Adding Object Properties
+## 7. JavaScript String Manipulation
 
-Add properties after creation using dot or bracket notation.
-
-```javascript
-let obj = { key1: 'value1', key2: 'value2' };
-
-obj.key3 = 'value3';        // Dot notation
-obj['key4'] = 'value4';     // Bracket notation
-```
-
----
-
-### Updating Object Properties
-
-Update existing properties the same way you add them:
-
-```javascript
-let obj = { key1: 'value1' };
-obj.key1 = 'newValue1';
-console.log(obj.key1); // 'newValue1'
-```
-
----
-
-### Deleting Object Properties
-
-Use the `delete` operator to remove properties:
-
-```javascript
-let obj = {
-  key1: 'value1',
-  key2: 'value2',
-  key3: 'value3'
-};
-
-delete obj.key1;
-console.log(obj.key1); // undefined
-```
-
----
-
-### Checking if a Property Exists
-
-1. **The `in` operator:**
-
-```javascript
-let obj = { key1: 'value1', key2: 'value2' };
-
-console.log('key1' in obj); // true
-console.log('key3' in obj); // false
-```
-
-2. **The `hasOwnProperty` method** (checks own properties only, not inherited):
-
-```javascript
-console.log(obj.hasOwnProperty("key1")); // true
-console.log(obj.hasOwnProperty("key3")); // false
-```
-
-3. **Direct property access** (check if value is `undefined`):
-
-```javascript
-console.log(obj.key1 !== undefined); // true
-console.log(obj.key3 !== undefined); // false
-```
-
-> **Note:** Method 3 can give false negatives if the property exists but its value is `undefined`.
-
----
-
-### Iterating Over Object Properties
-
-Use a `for...in` loop to iterate over an object's properties:
-
-```javascript
-let obj = {
-  key1: 'value1',
-  key2: 'value2',
-  key3: 'value3'
-};
-
-for (let key in obj) {
-  if (obj.hasOwnProperty(key)) {
-    console.log(key + ": " + obj[key]);
-  }
-}
-// Output:
-// key1: value1
-// key2: value2
-// key3: value3
-```
-
-The `hasOwnProperty` check ensures the property belongs to the object itself and not its prototype chain.
-
----
-
-### Object Methods
-
-Objects can have methods — functions stored as object properties.
-
-```javascript
-let obj = {
-  property1: 'value1',
-  property2: 'value2',
-  myMethod: function() {
-    console.log('This is a method!');
-  }
-};
-
-obj.myMethod(); // 'This is a method!'
-```
-
-Using `this` to refer to the object:
-
-```javascript
-let obj = {
-  property1: 'value1',
-  myMethod: function() {
-    console.log('Property1 is ' + this.property1);
-  }
-};
-
-obj.myMethod(); // 'Property1 is value1'
-```
-
----
-
-## JavaScript String Manipulation
-
-### concat
-
-The `concat` method joins two or more strings. It does **not** change the existing strings.
-
-```javascript
-let str1 = "Hello, ";
-let str2 = "World!";
-let result = str1.concat(str2);
-
-console.log(result); // "Hello, World!"
-```
-
----
-
-### charAt
-
-The `charAt` method returns the character at a specific index (0-based).
+### 7.1 String Methods
 
 ```javascript
 let str = "Hello, World!";
-let char = str.charAt(7);
 
-console.log(char); // "W"
+// concat — join strings
+str.concat(" How are you?"); // "Hello, World! How are you?"
+
+// charAt — character at index
+str.charAt(0);    // "H"
+str.charAt(7);    // "W"
+
+// at() — supports negative indexing (ES2022)
+str.at(-1);       // "!"
+
+// includes — check substring existence
+str.includes("World"); // true
+str.includes("world"); // false (case-sensitive)
+
+// indexOf / lastIndexOf — find position
+str.indexOf("o");      // 4 (first occurrence)
+str.lastIndexOf("o");  // 8 (last occurrence)
+
+// slice — extract substring
+str.slice(7, 12);  // "World"
+str.slice(-6);     // "orld!"
+str.slice(0, 5);   // "Hello"
+
+// substring — similar to slice but no negative indices
+str.substring(7, 12); // "World"
+
+// split — string to array
+str.split(", ");    // ["Hello", "World!"]
+str.split("");      // ["H","e","l","l","o",","," ","W","o","r","l","d","!"]
+"a.b.c".split(".");  // ["a", "b", "c"]
+
+// replace — replace first match
+str.replace("World", "Universe"); // "Hello, Universe!"
+
+// replaceAll — replace all matches (ES2021)
+"aabbcc".replaceAll("a", "x"); // "xxbbcc"
+
+// Regex replace
+"Hello 123 World 456".replace(/\d+/g, "#"); // "Hello # World #"
+
+// toLowerCase / toUpperCase
+str.toLowerCase(); // "hello, world!"
+str.toUpperCase(); // "HELLO, WORLD!"
+
+// trim / trimStart / trimEnd
+"  hello  ".trim();      // "hello"
+"  hello  ".trimStart();  // "hello  "
+"  hello  ".trimEnd();    // "  hello"
+
+// padStart / padEnd
+"5".padStart(3, "0");  // "005"
+"5".padEnd(3, "0");    // "500"
+
+// repeat
+"ha".repeat(3); // "hahaha"
+
+// startsWith / endsWith
+"Hello".startsWith("He");  // true
+"Hello".endsWith("lo");    // true
+
+// match — regex matching
+"test123".match(/\d+/);    // ["123"]
+"a1b2c3".match(/\d/g);     // ["1", "2", "3"]
+
+// matchAll (ES2020)
+let matches = [...'a1b2c3'.matchAll(/[a-z](\d)/g)];
+// [["a1","1"], ["b2","2"], ["c3","3"]]
 ```
 
 ---
 
-### includes
-
-The `includes` method determines whether one string can be found within another. Returns `true` or `false`. **Case-sensitive.**
-
-```javascript
-let str = "Hello, World!";
-let result = str.includes("World");
-
-console.log(result); // true
-```
-
----
-
-### indexOf
-
-The `indexOf` method returns the index of the first occurrence of a specified value, or `-1` if not found. **Case-sensitive.**
-
-```javascript
-let str = "Hello, World!";
-let index = str.indexOf("World");
-
-console.log(index); // 7
-```
-
----
-
-### slice
-
-The `slice` method extracts a section of a string and returns it as a new string. Takes a start index (inclusive) and end index (exclusive).
-
-```javascript
-let str = "Hello, World!";
-let slicedStr = str.slice(7, 12);
-
-console.log(slicedStr); // "World"
-```
-
----
-
-### split
-
-The `split` method divides a string into an array of substrings based on a separator.
-
-```javascript
-let str = "Hello, World!";
-let array = str.split(", ");
-
-console.log(array); // ["Hello", "World!"]
-```
-
----
-
-### replace
-
-The `replace` method replaces a specified value with another value. Returns a new string; the original is **not** modified.
-
-```javascript
-let str = "Hello, World!";
-let newStr = str.replace("World", "Universe");
-
-console.log(newStr); // "Hello, Universe!"
-```
-
----
-
-### toLowerCase
-
-The `toLowerCase` method converts a string to lowercase. Returns a new string.
-
-```javascript
-let str = "Hello, World!";
-let lowerCaseStr = str.toLowerCase();
-
-console.log(lowerCaseStr); // "hello, world!"
-```
-
----
-
-### toUpperCase
-
-The `toUpperCase` method converts a string to uppercase. Returns a new string.
-
-```javascript
-let str = "Hello, World!";
-let upperCaseStr = str.toUpperCase();
-
-console.log(upperCaseStr); // "HELLO, WORLD!"
-```
-
----
-
-### trim
-
-The `trim` method removes whitespace from **both ends** of a string. Returns a new string.
-
-```javascript
-let str = "   Hello, World!   ";
-let trimmedStr = str.trim();
-
-console.log(trimmedStr); // "Hello, World!"
-```
-
----
-
-### trimLeft & trimRight
-
-`trimLeft` removes whitespace from the **beginning**, `trimRight` from the **end**.
-
-```javascript
-let str = "   Hello, World!   ";
-let trimmedLeftStr = str.trimLeft();
-let trimmedRightStr = str.trimRight();
-
-console.log(trimmedLeftStr);  // "Hello, World!   "
-console.log(trimmedRightStr); // "   Hello, World!"
-```
-
----
-
-## JavaScript String Formatting
-
-### Template Literals
-
-Template literals (introduced in ES6) use **backticks** (`` ` ``) and allow embedded expressions via `${expression}`.
+### 7.2 Template Literals (ES6)
 
 ```javascript
 let name = "John";
 let age = 30;
+
+// String interpolation
 let greeting = `Hello, my name is ${name} and I am ${age} years old.`;
 
-console.log(greeting); // "Hello, my name is John and I am 30 years old."
+// Multi-line strings
+let html = `
+    <div>
+        <h1>${name}</h1>
+        <p>Age: ${age}</p>
+    </div>
+`;
+
+// Expressions in template literals
+let price = 9.99;
+let qty = 3;
+console.log(`Total: $${(price * qty).toFixed(2)}`); // "Total: $29.97"
+
+// Tagged templates (advanced)
+function highlight(strings, ...values) {
+    return strings.reduce((result, str, i) => {
+        return result + str + (values[i] ? `<b>${values[i]}</b>` : '');
+    }, '');
+}
+let msg = highlight`Hello ${name}, you are ${age} years old.`;
+// "Hello <b>John</b>, you are <b>30</b> years old."
 ```
 
 ---
 
-### String Concatenation
-
-**Using the `+` operator:**
+### 7.3 String Concatenation
 
 ```javascript
-let str1 = "Hello, ";
-let str2 = "World!";
-let result = str1 + str2;
+// Using + operator
+let result = "Hello" + ", " + "World!"; // "Hello, World!"
 
-console.log(result); // "Hello, World!"
+// Using concat()
+let result2 = "Hello".concat(", ", "World!"); // "Hello, World!"
+
+// Using template literals (RECOMMENDED)
+let name = "World";
+let result3 = `Hello, ${name}!`; // "Hello, World!"
+
+// Using join() for arrays of strings
+let parts = ["Hello", "World"];
+let result4 = parts.join(", "); // "Hello, World"
 ```
 
-**Using the `concat` method:**
+---
+
+## 8. Error Handling
 
 ```javascript
-let str1 = "Hello, ";
-let str2 = "World!";
-let result = str1.concat(str2);
+// try...catch...finally
+try {
+    let result = riskyOperation();
+    console.log(result);
+} catch (error) {
+    console.error("Error:", error.message);
+} finally {
+    console.log("This always runs");
+}
 
-console.log(result); // "Hello, World!"
+// Throwing custom errors
+function divide(a, b) {
+    if (b === 0) throw new Error("Division by zero");
+    return a / b;
+}
+
+// Error types
+// TypeError, ReferenceError, SyntaxError, RangeError, URIError
+
+// Custom error class
+class ValidationError extends Error {
+    constructor(message, field) {
+        super(message);
+        this.name = "ValidationError";
+        this.field = field;
+    }
+}
+throw new ValidationError("Invalid email", "email");
 ```
 
-> **Recommended:** Use **template literals** for string formatting as they are the most readable and modern approach.
+---
+
+## 9. Promises and Async/Await
+
+### 9.1 Promises
+
+```javascript
+// Creating a promise
+let promise = new Promise((resolve, reject) => {
+    let success = true;
+    if (success) {
+        resolve("Operation succeeded!");
+    } else {
+        reject("Operation failed!");
+    }
+});
+
+// Consuming a promise
+promise
+    .then(result => console.log(result))
+    .catch(error => console.error(error))
+    .finally(() => console.log("Done"));
+
+// Promise.all — wait for all
+Promise.all([fetch(url1), fetch(url2)])
+    .then(([res1, res2]) => console.log(res1, res2));
+
+// Promise.race — first to settle
+Promise.race([promise1, promise2])
+    .then(result => console.log("First:", result));
+
+// Promise.allSettled — wait for all, regardless of outcome
+Promise.allSettled([promise1, promise2])
+    .then(results => results.forEach(r => console.log(r.status)));
+```
+
+### 9.2 Async/Await
+
+```javascript
+async function fetchData() {
+    try {
+        let response = await fetch('https://api.example.com/data');
+        let data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Fetch failed:", error);
+    }
+}
+
+// Parallel async operations
+async function fetchMultiple() {
+    let [users, posts] = await Promise.all([
+        fetch('/api/users').then(r => r.json()),
+        fetch('/api/posts').then(r => r.json())
+    ]);
+    return { users, posts };
+}
+```
+
+---
+
+## 10. Useful Tips and Patterns
+
+```javascript
+// Nullish coalescing for defaults
+let config = userConfig ?? defaultConfig;
+
+// Optional chaining
+let street = user?.address?.street ?? "N/A";
+
+// Short-circuit evaluation
+isLoggedIn && showDashboard();
+isError || continueProcess();
+
+// Object destructuring in function params
+function createUser({ name, age, role = "user" }) {
+    return { name, age, role };
+}
+
+// Array/Object spread for immutable updates
+let newArr = [...oldArr, newItem];
+let newObj = { ...oldObj, updatedProp: newValue };
+
+// Convert NodeList to Array
+let divs = [...document.querySelectorAll('div')];
+
+// Remove duplicates
+let unique = [...new Set(array)];
+
+// Check if array is empty
+if (arr.length === 0) { /* empty */ }
+
+// Clone object (shallow)
+let clone = { ...original };
+let clone2 = Object.assign({}, original);
+
+// Clone object (deep)
+let deepClone = structuredClone(original); // Modern browsers
+let deepClone2 = JSON.parse(JSON.stringify(original)); // Older approach
+```
+
+---
+
+*These notes cover JavaScript fundamentals through intermediate concepts. For advanced topics, explore: Prototypes & Inheritance, Modules (import/export), Web APIs (DOM, Fetch, Storage), Event Loop & Microtasks, Generators, Proxies, and WeakMap/WeakSet.*
